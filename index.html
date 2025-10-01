@@ -9,7 +9,6 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
@@ -64,10 +63,10 @@
         }
         50% {
           transform: translateY(15vw);
-        } /* Geser ke kanan */
+        }
         100% {
           transform: translateY(0);
-        } /* Kembali ke posisi awal */
+        }
       }
 
       @keyframes gerakBawah {
@@ -76,23 +75,22 @@
         }
         50% {
           transform: translateY(-10vw);
-        } /* Geser ke kanan */
+        }
         100% {
           transform: translateY(0);
-        } /* Kembali ke posisi awal */
+        }
       }
 
-      /* Animasi gerak kanan-kiri */
       @keyframes gerakKananKiri {
         0% {
           transform: translateX(0);
         }
         50% {
           transform: translateX(60vw);
-        } /* Geser ke kanan */
+        }
         100% {
           transform: translateX(0);
-        } /* Kembali ke posisi awal */
+        }
       }
 
       @keyframes gerakKi {
@@ -101,56 +99,56 @@
         }
         50% {
           transform: translateX(-60vw);
-        } /* Geser ke kanan */
+        }
         100% {
           transform: translateX(0);
-        } /* Kembali ke posisi awal */
+        }
       }
 
-      /* Styling untuk gambar */
       .animasi-gerak {
         display: block;
         animation: gerakKananKiri 6s infinite ease-in-out;
       }
 
       @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
+      @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
 
-.spin-loop {
-  animation:
-    spin 10s linear infinite,
-    blink 2s ease-in-out infinite;
-}
+      .spin-loop {
+        animation:
+          spin 10s linear infinite,
+          blink 2s ease-in-out infinite;
+      }
 
-@keyframes pulses {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1); /* bisa ubah ke 1.05 kalau mau lebih halus */
-  }
-}
+      @keyframes pulses {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
 
-.pulse-image {
-  display: inline-block;
-  animation: pulses 1.5s ease-in-out infinite;
-  transform-origin: center center;
-}
+      .pulse-image {
+        display: inline-block;
+        animation: pulses 1.5s ease-in-out infinite;
+        transform-origin: center center;
+      }
+
       .animasi-atas {
         display: block;
         animation: gerakAtas 6s infinite ease-in-out;
@@ -161,33 +159,107 @@
         animation: gerakBawah 4s infinite ease-in-out;
       }
 
-      /* Styling untuk gambar */
       .animasi-gerak2 {
         display: block;
         animation: gerakKi 4s infinite ease-in-out;
+      }
+
+      /* Fade-in animation for content */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 1.2s ease-out forwards;
+      }
+
+      /* Staggered animations for content sections */
+      .fade-in-delay-1 {
+        animation-delay: 0.2s;
+      }
+
+      .fade-in-delay-2 {
+        animation-delay: 0.4s;
+      }
+
+      .fade-in-delay-3 {
+        animation-delay: 0.6s;
+      }
+
+      .fade-in-delay-4 {
+        animation-delay: 0.8s;
+      }
+
+      .fade-in-delay-5 {
+        animation-delay: 1.0s;
+      }
+
+      /* Button hover effect */
+      .btn-hover {
+        transition: all 0.3s ease;
+      }
+
+      .btn-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+
+      /* Countdown number animation */
+      @keyframes countPulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .count-pulse {
+        animation: countPulse 1s ease-in-out;
+      }
+
+      /* Form input focus effects */
+      .form-input {
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+        transform: translateY(-1px);
+      }
+
+      /* Success message animation */
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .success-message {
+        animation: slideDown 0.5s ease-out;
       }
     </style>
   </head>
 
   <body
-    class="overflow-x-hidden overflow-y-hidden max-w-[600px] mx-auto h-screen bg-[#f3dfd3] bg-cover bg-no-repeat "
+    class="overflow-x-hidden overflow-y-hidden max-w-[600px] mx-auto h-screen bg-[#f3dfd3] bg-cover bg-no-repeat"
   >
     <div class="relative cover">
-      <!-- <div class="absolute flex justify-between h-screen w-full flex-col z-20">
-        <img
-          src="./images/hello2.png"
-          alt=""
-          class="w-[40vw] lg:w-[20vw] ml-auto mb-4 animasi-gerak2"
-        />
-        <img
-          src="./images/hello.png"
-          alt=""
-          class="w-[40vw] lg:w-[20vw] animasi-gerak mb-4"
-        />
-      </div> -->
-      <!-- <div
-        class="w-full h-screen bg-[url('./images/star.png')] absolute z-10"
-      ></div> -->
       <video autoplay muted playsinline class="absolute w-full h-screen object-cover z-0">
         <source src="./images/abels.mp4" type="video/mp4" />
         Browser kamu tidak mendukung video HTML5.
@@ -197,30 +269,8 @@
         class="relative z-30 text-center bg-contain bg-no-repeat bg-center h-screen flex items-center relative justify-center"
       >
         <div class="">
-          <!-- <img
-            src="./images/orang.jpg"
-            alt=""
-            class="w-[60vw] lg:w-[20vw] mx-auto mb-4"
-          />
-          <p
-            class="text-[14vw] lg:text-[6vw] text-[#76379d] text-center daydream lg:mb-[-3vw] mb-[-6vw]"
-          >
-            Birthday
-          </p>
-          <p class="text-[8vw] lg:text-[4vw] text-[#985dbd] lilita text-center">
-            Party
-          </p>
-          <p class="text-[8vw] lg:text-[4vw] text-[#985dbd] lilita text-center">
-            Syaqila
-          </p>
-          <p
-            class="text-[5vw] lg:text-[2vw] font-light text-[#985dbd] lilita text-center"
-          >
-            Sunday, 2nd March 2025
-          </p> -->
-
           <button
-            class="bg-[#a56839] px-5 py-2 cursor-pointer mt-[85vw] lg:mt-[22vw] text-[6.5vw] light lg:text-[2vw] mx-auto lilita text-white rounded-[70px]"
+            class="bg-[#a56839] px-5 py-2 cursor-pointer mt-[85vw] lg:mt-[22vw] text-[6.5vw] light lg:text-[2vw] mx-auto lilita text-white rounded-[70px] btn-hover"
           >
             Open Invitation
           </button>
@@ -230,18 +280,16 @@
 
     <!-- Content Isi -->
     <div class="overflow-x-hidden hidden content bg-[#f3dfd3]">
-      <div class="flex justify-between items-top">
+      <!-- Decorative Top Elements -->
+      <div class="flex justify-between items-top fade-in">
         <div>
           <img
             src="./images/atas2.png"
             alt=""
-            class="w-[50vw] mt-[-8vw] ml-[-12vw] lg:w-[20vw] "
+            class="w-[50vw] mt-[-8vw] ml-[-12vw] lg:w-[20vw]"
           />
         </div>
-        <div>
-          <!-- <img src="./images/photo.png" alt="" class="w-[50vw] lg:w-[20vw]" /> -->
-        </div>
-        <div class=" mt-[-9vw]">
+        <div class="mt-[-9vw]">
           <img
             src="./images/atas1.png"
             alt=""
@@ -249,191 +297,139 @@
           />
         </div>
       </div>
-      <p
+
+      <!-- Name Section -->
+      <div class="fade-in fade-in-delay-1">
+        <p
           class="text-[12vw] lg:text-[4vw] text-[#a95b25] text-center britt lg:mb-[-5vw] mb-[-2vw]"
         >
-        Abel
+          Abel
         </p>
         <p
-        class="text-[#90664e] text-[5vw] mt-[6vw] lg:text-[2vw] text-center font-serif mt-[4vw] font-light"
-      >
-        IS TURNING
-      </p>
+          class="text-[#90664e] text-[5vw] mt-[6vw] lg:text-[2vw] text-center font-serif mt-[4vw] font-light"
+        >
+          IS TURNING
+        </p>
+      </div>
 
-      <!-- <div class="flex justify-between items-center">
-        <div>
-        <img src="./images/blink.png" alt="" class="w-[10vw] mx-auto object-contain pulse-image">
-        <img src="./images/wan.png" alt="" class="w-[20vw] mx-auto object-contain mt-[5vw]">
-        <img src="./images/bung.png" alt="" class="w-[10vw] mx-auto object-contain mt-[10vw] spin-loop ml-[-5vw]">
-        </div>
-        <img src="./images/kittyy.png" alt="" class="w-[50vw] mx-auto object-contain">
-        <div>
-          <img src="./images/blink.png" alt="" class="w-[10vw] mx-auto object-contain pulse-image">
-          <img src="./images/wan.png" alt="" class="w-[17vw] mx-auto object-contain mt-[5vw]">
-          <img src="./images/bung.png" alt="" class="w-[12vw] mx-auto object-contain mt-[15vw] spin-loop ml-[15vw]">
-        </div>
-      </div> -->
-
-      <div class="overflow-x-hidden">
-        
-   
-       
-
+      <!-- Cake Section -->
+      <div class="overflow-x-hidden fade-in fade-in-delay-2">
         <div
           class="flex justify-center items-center relative overflow-x-hidden overflow-y-hidden"
         >
-          <div class="absolute left-0">
-            <!-- <img
-              src="./images/bung.png"
-              alt=""
-              class="w-[15vw] mt-5 mb-[20vw] ml-[16vw] spin-loop lg:w-[20vw] mx-auto"
-            /> -->
-          </div>
           <div class="text-center">
             <img
               src="./images/cake17.png"
               alt=""
               class="w-[45vw] mt-5 lg:w-[10vw] mx-auto"
             />
-            <!-- <p
-              class="text-[6vw] mt-3 lg:text-[2vw] text-[#985dbd] lilita text-center"
-            >
-              Come and Join Us to <br />
-              Ralinka's Birthday Party
-            </p> -->
           </div>
           <div class="absolute right-0">
             <img
-            src="./images/bgkanan.png"
-            alt=""
-            class="w-[45vw] mt-5 mr-[-7vh] lg:w-[20vw] mx-auto"
-          />
+              src="./images/bgkanan.png"
+              alt=""
+              class="w-[45vw] mt-5 mr-[-7vh] lg:w-[20vw] mx-auto"
+            />
           </div>
         </div>
       </div>
 
-
+      <!-- Middle Decoration -->
       <div
-          class="flex justify-between items-center mt-[-18vw] relative overflow-x-hidden overflow-y-hidden"
-        >
-          <div class="">
-            <img
+        class="flex justify-between items-center mt-[-18vw] relative overflow-x-hidden overflow-y-hidden fade-in fade-in-delay-2"
+      >
+        <div class="">
+          <img
             src="./images/bungkir.png"
             alt=""
-            class="w-[25vw] lg:w-[20vw] mx-auto "
-            />
-          </div>
-          <div class="text-center">
-            <img
-              src="./images/middle.png"
-              alt=""
-              class="w-[50vw]  lg:w-[10vw] mx-auto"
-            />
-          </div>
-          <div class="w-[25vw]">
-            <img
+            class="w-[25vw] lg:w-[20vw] mx-auto"
+          />
+        </div>
+        <div class="text-center">
+          <img
+            src="./images/middle.png"
+            alt=""
+            class="w-[50vw] lg:w-[10vw] mx-auto"
+          />
+        </div>
+        <div class="w-[25vw]">
+          <img
             src="./images/kupu.png"
             alt=""
             class="w-[10vw] lg:w-[20vw] mx-auto animasi-bawah"
-            />
-
-          </div>
+          />
         </div>
       </div>
 
-
-      <div class="flex align-center justify-between bg-[#f3dfd3]">
-       <div class="w-[20vw]">
-        <img src="./images/kupuu.png" alt="" class="w-[10vw] object-contain animasi-atas">
-       </div>
+      <!-- Countdown Timer -->
+      <div class="flex align-center justify-between bg-[#f3dfd3] fade-in fade-in-delay-3">
+        <div class="w-[20vw]">
+          <img src="./images/kupuu.png" alt="" class="w-[10vw] object-contain animasi-atas" />
+        </div>
         <div
-        class="grid grid-cols-2 w-[60vw] gap-x-[10vw] lg:gap-x-[4vw] gap-y-[4vw] lg:px-0 mt-[8vw]"
-      >
-        <div class="text-center">
-          <div
-            class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw]  rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
-          >
-            5
-          </div>
-          <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase ">Days</p>
-        </div>
-        <div class="text-center">
-          <div class="relative">
-            <img src="./images/bungaatas.png" alt="" class="w-[14vw] object-contain absolute right-0 mt-[-5vw] mr-[-6vw] pulse-image">
+          class="grid grid-cols-2 w-[60vw] gap-x-[10vw] lg:gap-x-[4vw] gap-y-[4vw] lg:px-0 mt-[8vw]"
+        >
+          <div class="text-center">
             <div
-            class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] trocchi uppercase  rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
-          >
-            5
+              id="days"
+              class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
+            >
+              5
+            </div>
+            <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase">Days</p>
           </div>
-          
+          <div class="text-center">
+            <div class="relative">
+              <img src="./images/bungaatas.png" alt="" class="w-[14vw] object-contain absolute right-0 mt-[-5vw] mr-[-6vw] pulse-image" />
+              <div
+                id="hours"
+                class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] trocchi uppercase rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
+              >
+                5
+              </div>
+            </div>
+            <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase">Hours</p>
           </div>
-          <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase ">Hours</p>
-        </div>
-        <div class="text-center ">
-          <div class="relative">
+          <div class="text-center">
+            <div class="relative">
+              <div
+                id="minutes"
+                class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] trocchi uppercase rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
+              >
+                5
+              </div>
+              <img src="./images/bungabawah.png" alt="" class="w-[10vw] object-contain absolute left-0 mt-[5vw] top-0 ml-[-2vw] pulse-image" />
+            </div>
+            <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase">Minutes</p>
+          </div>
+          <div class="text-center">
             <div
-            class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] trocchi uppercase  rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
-          >
-            5
+              id="seconds"
+              class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] trocchi uppercase rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
+            >
+              5
+            </div>
+            <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase">Seconds</p>
           </div>
-          <img src="./images/bungabawah.png" alt="" class="w-[10vw] object-contain absolute left-0 mt-[5vw] top-0 ml-[-2vw] pulse-image">
-          </div>
-          <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase ">Minutes</p>
         </div>
-        <div class="text-center">
-          <div
-            class="bg-[#a56839] text-white text-[6vw] lg:text-[2vw] trocchi uppercase  rounded-full lg:px-[2vw] px-[10vw] text-center py-[2vw]"
-          >
-            5
-          </div>
-          <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi uppercase ">Second</p>
-        </div>
-      </div>
-      <div class="w-[17vw]">
-
-      </div>
-      <!-- <img src="./images/bung.png" alt="" class="w-[17vw] object-contain spin-loop"> -->
+        <div class="w-[17vw]"></div>
       </div>
 
-      <!-- <div class="flex max-w-[600px] items-center py-[3vw]">
-        <img
-          src="./images/spark.png"
-          alt=""
-          class="w-[33vw] mt-5 lg:w-[20vw] mx-auto"
-        />
-        <img
-          src="./images/kitty.png"
-          alt=""
-          class="w-[33vw] mt-5 absolute lg:w-[20vw] mx-auto animasi-gerak"
-        />
-        <img
-          src="./images/spark.png"
-          alt=""
-          class="w-[33vw] mt-5 lg:w-[20vw] mx-auto"
-        />
-      </div> -->
-
-      <div class="flex justify-between items-center bg-[#f3dfd3] mt-[6vw]">
-        <div>
-          <!-- <img src="./images/bung.png" alt="" class="w-[15vw] object-contain spin-loop"> -->
-        </div>
+      <!-- Date and Time -->
+      <div class="flex justify-between items-center bg-[#f3dfd3] mt-[6vw] fade-in fade-in-delay-3">
+        <div></div>
         <div class="text-center">
           <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi">Saturday</p>
           <div class="flex items-center gap-[5vw] w-[100vw] px-[20vw] justify-between my-[4vw]">
             <div class="w-[10vw] w-full border-t border-b border-[#a56839]">
-              <p class="text-[#a56839] text-[5vw]  lg:text-[2vw] trocchi">October</p>
+              <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi">October</p>
             </div>
-
             <div class="w-[10vw]">
               <p class="text-[#a56839] text-[7vw] lg:text-[2vw] trocchi">25</p>
             </div>
-            
-
-            <div class="w-full border-t border-b border-[#a56839] ">
+            <div class="w-full border-t border-b border-[#a56839]">
               <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi">2025</p>
             </div>
-            
-            
           </div>
           <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi">
             at 17.00 WITA
@@ -443,176 +439,78 @@
           <img src="./images/bung.png" alt="" class="w-[15vw] lg:w-[20vw] spin-loop" />
         </div>
       </div>
+
+      <!-- Location -->
       <img
         src="./images/locpink.png"
         alt=""
-        class="w-[4vw] mt-[7vw] mx-auto lg:w-[5vw]"
+        class="w-[4vw] mt-[7vw] mx-auto lg:w-[5vw] fade-in fade-in-delay-4"
       />
-      <div class="text-center">
-        <!-- <p class="text-[#975daf] text-[8vw] lg:text-[2vw] fredoka">
-          Ralinka’s Home
-        </p> -->
+      <div class="text-center fade-in fade-in-delay-4">
         <p class="text-[5vw] lg:text-[2vw] trocchi text-[#a56839]">
           J4 Hotel Legian
         </p>
       </div>
 
-      <div class="flex w-full justify-between mt-[-13vw] lg:mt-[1vw] text-center mb-[2vw] items-center ">
+      <!-- Location Button and Dresscode -->
+      <div class="flex w-full justify-between mt-[-13vw] lg:mt-[1vw] text-center mb-[2vw] items-center fade-in fade-in-delay-4">
         <div>
-          <!-- <img
-            src="./images/blink.png"
-            alt=""
-            class="w-[10vw] ml-[10vw] lg:w-[20vw] mx-auto"
-          /> -->
           <img
-          src="./images/bungg.png"
-          alt=""
-          class="w-[18vw]  lg:w-[20vw] mx-auto"
-        />
+            src="./images/bungg.png"
+            alt=""
+            class="w-[18vw] lg:w-[20vw] mx-auto"
+          />
         </div>
         <div class="w-[50vw]">
           <div class="relative">
             <a
-            href="https://share.google/CSOoZRuz86h0lZNHb"
-            target="_blank"
-            class="bg-[#a56839] text-whote text-center mx-auto px-7 py-3 cursor-pointer mt-[4vw] text-[5vw] lg:text-[2vw] mx-auto trocchi text-white rounded-full"
-          >
-            See Location
-          </a>
-           <img
-            src="./images/bungkecil.png"
-            alt=""
-            class="w-[9vw]  lg:w-[20vw] mx-auto absolute top-[-4vw] right-0 spin-loop"
-          />
+              href="https://share.google/CSOoZRuz86h0lZNHb"
+              target="_blank"
+              class="bg-[#a56839] text-white text-center mx-auto px-7 py-3 cursor-pointer mt-[4vw] text-[5vw] lg:text-[2vw] mx-auto trocchi text-white rounded-full btn-hover inline-block"
+            >
+              See Location
+            </a>
+            <img
+              src="./images/bungkecil.png"
+              alt=""
+              class="w-[9vw] lg:w-[20vw] mx-auto absolute top-[-4vw] right-0 spin-loop"
+            />
           </div>
-          <p class="text-[#a56839] text-center mt-[6vw]  text-[5vw] lg:text-[2vw] trocchi">
+          <p class="text-[#a56839] text-center mt-[6vw] text-[5vw] lg:text-[2vw] trocchi">
             Dresscode: White
           </p>
         </div>
-        <!-- <div style="margin-left: -34px;
-    margin-top: -27px;">
-          <img
-            src="./images/nyantol.png"
-            alt=""
-            class="w-[10vw] lg:w-[20vw] mr-auto"
-          />
-        </div> -->
         <div class="w-[18vw]">
           <img
-          src="./images/kupu3.png"
-          alt=""
-          class="w-[18vw] lg:w-[20vw] mx-auto animasi-bawah"
-        />
+            src="./images/kupu3.png"
+            alt=""
+            class="w-[18vw] lg:w-[20vw] mx-auto animasi-bawah"
+          />
         </div>
       </div>
-      
-    
-      <div class="text-center mt-[-34vw]">
-        <!-- <p class="text-[#e17b7b] text-ce text-[8vw] lg:text-[2vw] fredoka">Blessed Parents:</p>
-        <p class="text-[#f8afaf] text-[6vw] lg:text-[2vw] fredoka">
-          Moh. Jodhy Setiawan Umar 
-        </p>
-        <p class="text-[#f8afaf] text-[6vw] lg:text-[2vw] fredoka mb-[5vw]">
-          Nawira Rahmanda
-        </p> -->
-        <div class="flex justify-center items-center ">
-          <!-- <img
-          src="./images/wan.png"
-          alt=""
-          class="w-[20vw] ml-[-3vw] lg:w-[10vw] mx-auto"
-          /> -->
+
+      <!-- Final Decoration -->
+      <div class="text-center mt-[-34vw] fade-in fade-in-delay-5">
+        <div class="flex justify-center items-center">
           <div class="w-[20vw]"></div>
           <img
-          src="./images/akhir.png"
-          alt=""
-          class="w-[60vw] lg:w-[10vw] mx-auto "
+            src="./images/akhir.png"
+            alt=""
+            class="w-[60vw] lg:w-[10vw] mx-auto"
           />
           <div class="mt-[20vw]">
             <img
-            src="./images/bungakhir.png"
-            alt=""
-            class="w-[20vw]  lg:w-[10vw] mx-auto"
+              src="./images/bungakhir.png"
+              alt=""
+              class="w-[20vw] lg:w-[10vw] mx-auto"
             />
-            <!-- <img
-            src="./images/bung.png"
-            alt=""
-            class="w-[14vw] mt-[5vw] lg:w-[10vw] mx-auto spin-loop"
-            /> -->
           </div>
         </div>
-        <!-- <p class="text-[#ba7be1] text-[5vw] lg:text-[1vw] fredoka">
-          Blessed Parents: <br />Fauzan & Ira
-        </p> -->
-        <!-- <p class="text-[#f72489] mt-3 text-center text-[6vw] lg:text-[2vw] lilita">
-          with love,
-        </p>
-        <p class="text-[#f72489] text-center text-[10vw] lg:text-[2vw] breath">
-          Chanel
-        </p> -->
       </div>
 
-      <!-- <div class="w-full overflow-hidden py-4 relative">
-        <p class="text-[#f72489] ml-[2vw] text-[7vw] mb-[2vw] lg:text-[2vw] lilita">
-          Gallery :
-        </p>
-        <div class="flex gap-5 animate-marquee">
-          <img
-            class="w-52 object-cover rounded-lg"
-            src="./images/1.jpeg"
-            alt="Image 1"
-          />
-          <img
-            class="w-52 object-cover rounded-lg"
-            src="./images/2.jpeg"
-            alt="Image 2"
-          />
-          <img
-            class="w-52 object-cover rounded-lg"
-            src="./images/3.jpeg"
-            alt="Image 3"
-          />
-          <img
-            class="w-52 object-cover rounded-lg"
-            src="./images/4.jpeg"
-            alt="Image 4"
-          />
-          <img
-            class="w-52 object-cover rounded-lg"
-            src="./images/5.jpeg"
-            alt="Image 5"
-          />
-          <img
-            class="w-52 object-cover rounded-lg"
-            src="./images/6.jpeg"
-            alt="Image 6"
-          />
-        </div>
-      </div> -->
-
-      <!-- <div class="flex w-full items-center">
-        <img
-          src="./images/spark.png"
-          alt=""
-          class="w-[20vw] mt-5 lg:w-[10vw] mx-auto"
-        />
-        <img
-          src="./images/bawah.png"
-          alt=""
-          class="w-[60vw] mt-5 lg:w-[20vw] mx-auto"
-        />
-        <img
-          src="./images/spark.png"
-          alt=""
-          class="w-[20vw] mt-5 lg:w-[10vw] mx-auto"
-        />
-      </div> -->
-      <!-- <img
-          src="./images/neu.png"
-          alt=""
-          class="w-full mt-5 lg:w-[20vw] mx-auto"
-        /> -->
-      <div class="flex bg-[#a95b25] px-[6vw] py-[4vw]">
-        <form action="">
+      <!-- RSVP Form -->
+      <div class="flex bg-[#a95b25] px-[6vw] py-[4vw] fade-in fade-in-delay-5">
+        <form id="rsvpForm" class="flex-1">
           <div>
             <p class="text-white text-[5vw] lg:text-[2vw] trocchi">Name:</p>
             <div class="flex relative">
@@ -620,14 +518,10 @@
                 type="text"
                 name="nama"
                 id="nama"
-                class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border b-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi"
-                placeholder="Nama"
+                class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi form-input placeholder-white/70"
+                placeholder="Name"
+                required
               />
-              <!-- <img
-                src="./images/kit.png"
-                alt=""
-                class="w-[20vw] mt-5 lg:w-[5vw] mx-auto absolute lg:bottom-[4vw] right-[-2vw] bottom-[10vw]"
-              /> -->
             </div>
           </div>
 
@@ -639,8 +533,9 @@
               type="text"
               name="wishes"
               id="wishes"
-              class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border b-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi"
+              class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi form-input placeholder-white/70"
               placeholder="Wishes"
+              required
             />
           </div>
 
@@ -650,33 +545,25 @@
             </p>
             <div class="flex relative">
               <select
-                type="text"
                 name="attendance"
                 id="attendance"
-                class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border b-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi"
-                placeholder="Nama"
+                class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi"
               >
-                <option value="hadir" selected>Hadir</option>
-                <option value="tidak">Tidak Hadir</option>
+                <option value="hadir" selected>Attend</option>
+                <option value="tidak">Not Attend</option>
               </select>
-              <!-- <img
-                src="./images/kitt.png"
-                alt=""
-                class="w-[20vw] mt-5 lg:w-[5vw] mx-auto absolute right-[-3vw] bottom-0"
-              /> -->
             </div>
           </div>
+          
           <div class="mt-[3vw]" id="numberPersonDiv">
             <p class="text-white text-[5vw] lg:text-[2vw] trocchi">
               Number of Person:
             </p>
             <div class="flex relative">
               <select
-                type="text"
                 name="numberPerson"
                 id="numberPerson"
-                class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border b-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi"
-                placeholder="Nama"
+                class="w-full px-[2vw] py-[3vw] lg:py-[1vw] bg-transparent border-2 border-white text-white text-[5vw] lg:text-[2vw] trocchi"
               >
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -686,15 +573,16 @@
 
           <div class="relative">
             <button
-            class="bg-[#c58c57] px-5 py-2 cursor-pointer mt-[4vw] text-[5vw] lg:text-[2vw] mx-auto trocchi text-white rounded-full"
-          >
-            Send
-          </button>
-          <img
-          src="./images/kecil.png"
-          alt=""
-          class="w-[10vw] mt-auto lg:w-[20vw] top-0 absolute right-[25vh] spin-loop"
-        />
+              type="submit"
+              class="bg-[#c58c57] px-5 py-2 cursor-pointer mt-[4vw] text-[5vw] lg:text-[2vw] mx-auto trocchi text-white rounded-full btn-hover w-full"
+            >
+              Send
+            </button>
+            <img
+              src="./images/kecil.png"
+              alt=""
+              class="w-[10vw] mt-auto lg:w-[20vw] top-0 absolute right-[25vh] spin-loop"
+            />
           </div>
         </form>
         <img
@@ -704,7 +592,13 @@
         />
       </div>
 
-      <div class="pb-[50vw] pt-[5vw] text-center bg-[url('./images/ending.png')] bg-contain bg-no-repeat bg-bottom">
+      <!-- Success Message (hidden by default) -->
+      <div id="successMessage" class="hidden fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg success-message z-50">
+        <p class="text-sm font-medium">Thank you for your RSVP! 🎉</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="pb-[50vw] pt-[5vw] text-center bg-[url('./images/ending.png')] bg-contain bg-no-repeat bg-bottom fade-in fade-in-delay-5">
         <p class="text-[#a56839] text-[5vw] lg:text-[2vw] trocchi">
           Created by:
           <br />Invite You Invitation
@@ -713,43 +607,146 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    const attendanceSelect = document.getElementById("attendance");
-    const numberOfPersonDiv = document.getElementById("numberPersonDiv");
-
-    function toggleNumberOfPerson() {
-        if (attendanceSelect && numberOfPersonDiv) {
-            if (attendanceSelect.value === "hadir") {
-                numberOfPersonDiv.classList.remove("hidden");
-            } else {
-                numberOfPersonDiv.classList.add("hidden");
-            }
+      // Countdown Timer functionality
+      let countdownInterval;
+      
+      function startCountdown() {
+        // Set the target date (October 25, 2025, 17:00 WITA)
+        const targetDate = new Date('2025-10-25T17:00:00+08:00').getTime();
+        
+        countdownInterval = setInterval(function() {
+          const now = new Date().getTime();
+          const distance = targetDate - now;
+          
+          if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('days').textContent = '0';
+            document.getElementById('hours').textContent = '0';
+            document.getElementById('minutes').textContent = '0';
+            document.getElementById('seconds').textContent = '0';
+            return;
+          }
+          
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          updateCountdownDisplay('days', days);
+          updateCountdownDisplay('hours', hours);
+          updateCountdownDisplay('minutes', minutes);
+          updateCountdownDisplay('seconds', seconds);
+        }, 1000);
+      }
+      
+      function updateCountdownDisplay(id, value) {
+        const element = document.getElementById(id);
+        const currentValue = element.textContent;
+        
+        if (currentValue !== value.toString()) {
+          element.textContent = value;
+          element.classList.add('count-pulse');
+          setTimeout(() => {
+            element.classList.remove('count-pulse');
+          }, 1000);
         }
-    }
+      }
 
-    // Jalankan saat halaman dimuat
-    toggleNumberOfPerson();
+      // Attendance toggle functionality
+      function toggleNumberOfPerson() {
+        const attendanceSelect = document.getElementById("attendance");
+        const numberOfPersonDiv = document.getElementById("numberPersonDiv");
+        
+        if (attendanceSelect && numberOfPersonDiv) {
+          if (attendanceSelect.value === "hadir") {
+            numberOfPersonDiv.classList.remove("hidden");
+          } else {
+            numberOfPersonDiv.classList.add("hidden");
+          }
+        }
+      }
 
-    // Tambahkan event listener untuk perubahan pada select attendance
-    if (attendanceSelect) {
-        attendanceSelect.addEventListener("change", toggleNumberOfPerson);
-    }
-});
+      // Form submission
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const data = {
+          nama: formData.get('nama'),
+          wishes: formData.get('wishes'),
+          attendance: formData.get('attendance'),
+          numberPerson: formData.get('numberPerson')
+        };
+        
+        console.log('RSVP submitted:', data);
+        
+        // Show success message
+        const successMessage = document.getElementById('successMessage');
+        successMessage.classList.remove('hidden');
+        
+        // Reset form
+        e.target.reset();
+        
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+        }, 3000);
+      }
 
-
+      // Main initialization
       document.addEventListener("DOMContentLoaded", function () {
-        const button = document.querySelector(".cover button"); // Ambil button
-        const cover = document.querySelector(".cover"); // Ambil div dengan class cover
-        const body = document.querySelector("body"); // Ambil div dengan class cover
+        const button = document.querySelector(".cover button");
+        const cover = document.querySelector(".cover");
+        const body = document.querySelector("body");
+        const content = document.querySelector(".content");
+        const attendanceSelect = document.getElementById("attendance");
+        const rsvpForm = document.getElementById('rsvpForm');
 
+        // Initialize attendance toggle
+        toggleNumberOfPerson();
+        
+        // Add event listener for attendance changes
+        if (attendanceSelect) {
+          attendanceSelect.addEventListener("change", toggleNumberOfPerson);
+        }
 
-        const content = document.querySelector(".content"); // Ambil div dengan class content
+        // Add event listener for form submission
+        if (rsvpForm) {
+          rsvpForm.addEventListener("submit", handleFormSubmit);
+        }
 
-        button.addEventListener("click", function () {
-          cover.style.display = "none"; // Sembunyikan div cover
-          body.style.overflowY= "scroll";
-          content.classList.remove("hidden"); // Tampilkan div content
-        });
+        // Open invitation button click handler
+        if (button) {
+          button.addEventListener("click", function () {
+            // Hide cover with fade out
+            cover.style.transition = "opacity 0.5s ease-out";
+            cover.style.opacity = "0";
+            
+            setTimeout(() => {
+              cover.style.display = "none";
+              body.style.overflowY = "scroll";
+              
+              // Show content with fade-in animation
+              content.classList.remove("hidden");
+              
+              // Add fade-in class to all content sections
+              const fadeElements = content.querySelectorAll('.fade-in');
+              fadeElements.forEach((element, index) => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(30px)";
+                
+                setTimeout(() => {
+                  element.style.transition = "opacity 1.2s ease-out, transform 1.2s ease-out";
+                  element.style.opacity = "1";
+                  element.style.transform = "translateY(0)";
+                }, index * 100);
+              });
+              
+              // Start countdown timer
+              startCountdown();
+            }, 500);
+          });
+        }
       });
     </script>
   </body>
